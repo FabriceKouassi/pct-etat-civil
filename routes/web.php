@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\back\DashboadrController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('/')->group(function () {
-    Route::get('/', [HomeController::class, 'home']);
+    Route::get('/', [HomeController::class, 'home'])->name('front.home');
+});
+
+Route::prefix('admin_space')->middleware('guest')->group(function () {
+    Route::get('dashboard', [DashboadrController::class, 'index'])->name('admin.dashboard');
 });
