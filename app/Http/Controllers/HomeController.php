@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Services\HomeService;
 
 class HomeController extends Controller
 {
@@ -13,7 +13,7 @@ class HomeController extends Controller
         $this->homeService = $homeService;
     }
 
-    public function index()
+    public function home()
     {
         return $this->homeService->home();
     }
