@@ -42,6 +42,10 @@ header.scrolled nav ul li a {
     color: var(--white);
 }
 
+header.scrolled nav ul li a:hover {
+    color: var(--dark);
+}
+
 header.scrolled .logo-text h1 {
     color: var(--white);
 }
@@ -102,6 +106,7 @@ nav ul {
 nav ul li {
     margin-left: 25px;
     position: relative;
+    align-content: space-around;
 }
 
 nav ul li a {
@@ -113,7 +118,7 @@ nav ul li a {
 }
 
 nav ul li a::after {
-    content: '';
+    /* content: ''; */
     position: absolute;
     width: 0;
     height: 2px;
@@ -267,7 +272,7 @@ nav ul li a:hover {
 }
 
 .section-title p {
-    color: #666;
+    color: #dbbf09;
     max-width: 700px;
     margin: 0 auto;
     font-size: 1.1rem;
@@ -705,6 +710,7 @@ footer {
     text-align: center;
     margin: 0 8px;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .social-links a:hover {
