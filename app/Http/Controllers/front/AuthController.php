@@ -4,6 +4,7 @@ namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
 use App\Services\AuthService;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -13,9 +14,19 @@ class AuthController extends Controller
         $this->authService = $authService;
     }
 
-    public function index()
+    public function showForm()
     {
         return $this->authService->showForm();
+    }
+
+    public function register(Request $request)
+    {
+        return $this->authService->register($request);
+    }
+
+    public function login(Request $request)
+    {
+        return $this->authService->login($request);
     }
 
     public function restore()

@@ -18,10 +18,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/')->group(function () {
     Route::get('/', [HomeController::class, 'home'])->name('front.home');
-    Route::get('/authentification', [AuthController::class, 'index'])->name('front.auth');
-    Route::get('/authentification/restaurer-le-mot-de-passe', [AuthController::class, 'restore'])->name('front.auth.restore');
+
+    Route::prefix('authentification')->group(function () {
+        Route::get('/', [AuthController::class, 'showForm'])->name('front.showForm');
+        Route::get('/restaurer-le-mot-de-passe', [AuthController::class, 'restore'])->name('front.auth.restore');
+
+        Route::post('/register', [AuthController::class, 'register'])->name('register');
+        Route::post('/login', [AuthController::class, 'login'])->name('login');
+        Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    });
 });
 
-Route::prefix('admin_space')->middleware('guest')->group(function () {
+Route::prefix('admin_space')->middleware('auth')->group(function () {
     Route::get('dashboard', [DashboadrController::class, 'index'])->name('admin.dashboard');
 });

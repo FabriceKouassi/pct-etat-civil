@@ -16,5 +16,6 @@
     </div>
 
     <script src="{{ asset('ressources/js/auth.js') }}"></script>
+
 </body>
 </html>

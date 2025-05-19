@@ -32,6 +32,14 @@ body {
     background-attachment: fixed;
 }
 
+.invalid-feedback
+{
+    font-weight: 600;
+    font-size: 1rem;
+    color: red;
+    padding: 1rem;
+}
+
 .container {
     width: 100%;
     max-width: 440px;

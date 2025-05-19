@@ -30,15 +30,22 @@
                 <span class="divider-text">ou continuer avec email</span>
             </div> --}}
 
-            <form>
+            <form action="{{ route('login') }}" method="POST">
+                @csrf
                 <div class="input-group">
                     <label for="login-email">Adresse email</label>
-                    <input type="email" id="login-email" placeholder="votre@email.com" required>
+                    <input type="email" id="login-email" name="email" placeholder="votre@email.com" required>
+                    @error('login-email')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="input-group">
                     <label for="login-password">Mot de passe</label>
-                    <input type="password" id="login-password" placeholder="••••••••" required>
+                    <input type="password" id="login-password" name="password" placeholder="••••••••" required>
                     <i class="fas fa-eye password-toggle" onclick="togglePassword('login-password', this)"></i>
+                    @error('login-password')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="forgot-password">
                     <a href="{{ route("front.auth.restore") }}">Mot de passe oublié ?</a>
@@ -72,23 +79,33 @@
                 <span class="divider-text">ou s'inscrire avec email</span>
             </div> --}}
 
-            <form>
+            <form action="{{ route('register') }}" method="POST">
+                @csrf
                 <div class="input-group">
                     <label for="register-name">Nom complet</label>
-                    <input type="text" id="register-name" placeholder="Fabrice Ako" required>
+                    <input type="text" id="register-name" name="name" placeholder="Fabrice Ako" required>
+                    @error('register-name')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="input-group">
                     <label for="register-email">Adresse email</label>
-                    <input type="email" id="register-email" placeholder="votre@email.com" required>
+                    <input type="email" id="register-email" name="email" placeholder="votre@email.com" required>
+                    @error('register-email')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="input-group">
                     <label for="register-password">Mot de passe</label>
-                    <input type="password" id="register-password" placeholder="••••••••" required>
+                    <input type="password" id="register-password" name="password" placeholder="••••••••" required>
                     <i class="fas fa-eye password-toggle" onclick="togglePassword('register-password', this)"></i>
+                    @error('register-password')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="input-group">
                     <label for="register-confirm">Confirmer le mot de passe</label>
-                    <input type="password" id="register-confirm" placeholder="••••••••" required>
+                    <input type="password" id="register-confirm" name="confirm_password" placeholder="••••••••" required>
                     <i class="fas fa-eye password-toggle" onclick="togglePassword('register-confirm', this)"></i>
                 </div>
                 <button type="submit" class="btn-primary">S'inscrire</button>
