@@ -34,7 +34,7 @@
                 @csrf
                 <div class="input-group">
                     <label for="login-email">Adresse email</label>
-                    <input type="email" id="login-email" name="email" placeholder="votre@email.com" required>
+                    <input type="email" id="login-email" name="email" placeholder="votre@email.com" required value="{{ Request::old('email') }}">
                     @error('login-email')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -83,14 +83,14 @@
                 @csrf
                 <div class="input-group">
                     <label for="register-name">Nom complet</label>
-                    <input type="text" id="register-name" name="name" placeholder="Fabrice Ako" required>
+                    <input type="text" id="register-name" name="name" placeholder="Fabrice Ako" required value="{{ Request::old('name') }}">
                     @error('register-name')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="input-group">
                     <label for="register-email">Adresse email</label>
-                    <input type="email" id="register-email" name="email" placeholder="votre@email.com" required>
+                    <input type="email" id="register-email" name="email" placeholder="votre@email.com" required value="{{ Request::old('email') }}">
                     @error('register-email')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -105,7 +105,7 @@
                 </div>
                 <div class="input-group">
                     <label for="register-confirm">Confirmer le mot de passe</label>
-                    <input type="password" id="register-confirm" name="confirm_password" placeholder="••••••••" required>
+                    <input type="password" id="register-confirm" name="password_confirmation" placeholder="••••••••" required>
                     <i class="fas fa-eye password-toggle" onclick="togglePassword('register-confirm', this)"></i>
                 </div>
                 <button type="submit" class="btn-primary">S'inscrire</button>

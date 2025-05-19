@@ -25,10 +25,10 @@ Route::prefix('/')->group(function () {
 
         Route::post('/register', [AuthController::class, 'register'])->name('register');
         Route::post('/login', [AuthController::class, 'login'])->name('login');
-        Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     });
 });
 
 Route::prefix('admin_space')->middleware('auth')->group(function () {
     Route::get('dashboard', [DashboadrController::class, 'index'])->name('admin.dashboard');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

@@ -23,7 +23,7 @@ class AuthService
 
     public function register($request)
     {
-        $validator =  $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:3|confirmed',
@@ -33,7 +33,7 @@ class AuthService
             'email.email' => 'Adresse email requis',
             'email.unique' => 'Email déjà utilisé',
             'password.required' => 'Mot de passe obligatoire',
-            'password.min' => 'le mot de passe dois contenir 8 caractères minimums',
+            'password.min' => 'le mot de passe dois contenir 3 caractères minimums',
             'password.confirmed' => 'Mot de passe non identique',
         ]);
 
@@ -57,12 +57,12 @@ class AuthService
             return redirect()->route('admin.dashboard')->with('success', 'Inscription réussie !');
         }
 
-        return redirect()->route('admin.dashboard')->with('error', 'Erreur d\'enregistrement');
+        return redirect()->back()->with('error', 'Erreur d\'enregistrement');
     }
 
     public function login($request)
     {
-        $credentials = $request->validate([
+        $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required',
         ], [
@@ -71,14 +71,24 @@ class AuthService
             'password.required' => 'Mot de passe obligatoire',
         ]);
 
-        if (Auth::attempt($credentials, $request->remember)) {
+        if ($validator->fails()) {
+            $firstErrorMessage = $validator->errors()->first();
+            toastr()->error($firstErrorMessage);
+
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $email = $request->input('email');
+        $password = $request->input('password');
+
+        if (Auth::attempt(['email' => $email, 'password' => $password], $request->filled('remember'))) {
             $request->session()->regenerate();
+            toastr()->success('Connexion réussie !');
             return redirect()->intended('admin_space/dashboard');
         }
 
-        return back()->withErrors([
-            'email' => 'Identifiants incorrects.',
-        ]);
+        toastr()->error('Email ou mot de passe incorrect');
+        return back();
     }
 
     // Gérer la déconnexion
