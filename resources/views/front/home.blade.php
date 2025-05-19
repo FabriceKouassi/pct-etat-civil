@@ -223,7 +223,7 @@
                         </div>
                         <div>
                             <h4>Téléphone</h4>
-                            <p>+225 XX XX XX XX</p>
+                            <p>+225 07 88 46 36 92</p>
                         </div>
                     </div>
 

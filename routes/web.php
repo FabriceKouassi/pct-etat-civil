@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\back\DashboadrController;
+use App\Http\Controllers\front\AuthController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/')->group(function () {
     Route::get('/', [HomeController::class, 'home'])->name('front.home');
+    Route::get('/authentification', [AuthController::class, 'index'])->name('front.auth');
+    Route::get('/authentification/restaurer-le-mot-de-passe', [AuthController::class, 'restore'])->name('front.auth.restore');
 });
 
 Route::prefix('admin_space')->middleware('guest')->group(function () {
