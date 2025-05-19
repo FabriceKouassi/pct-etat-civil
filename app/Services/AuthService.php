@@ -53,7 +53,6 @@ class AuthService
         Auth::login($user);
 
         if ($user instanceof Model) {
-
             return redirect()->route('admin.dashboard')->with('success', 'Inscription réussie !');
         }
 
