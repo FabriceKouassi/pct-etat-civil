@@ -1,16 +1,15 @@
-@extends('back.layouts.app')
+@extends('back.__.app')
 @section('title', $title)
 @section('content')
-
-    @include('back.layouts.topbar')
+    @include('back.__.topbar')
 
     <!-- Dashboard Content -->
     <div class="dashboard-content">
         <div class="page-title">
             <h1>Tableau de Bord</h1>
-            <button class="btn btn-primary">
+            <a href="{{ route('declaration.index') }}" class="btn btn-primary">
                 <i class="fas fa-plus"></i> Nouvelle Déclaration
-            </button>
+            </a>
         </div>
 
         <!-- Stats Cards -->

@@ -14,7 +14,9 @@
             <div class="user-avatar">
                 <img src="{{ asset('ressources/img/user.jpg') }}" alt="User">
             </div>
-            <span class="user-name">Fabrice Ako</span>
+            <span class="user-name">
+                {{ Auth::user()->name }}
+            </span>
             <i class="fas fa-chevron-down"></i>
         </div>
     </div>

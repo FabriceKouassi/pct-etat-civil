@@ -14,7 +14,7 @@
 
     <div class="sidebar-menu">
         <div class="menu-title">Menu Principal</div>
-        <a href="#" class="menu-item active">
+        <a href="{{ route('admin.dashboard') }}" class="menu-item active">
             <i class="fas fa-tachometer-alt"></i>
             <span class="menu-text">Tableau de Bord</span>
         </a>

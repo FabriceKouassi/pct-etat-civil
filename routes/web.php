@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\back\DashboadrController;
+use App\Http\Controllers\back\DeclarationController;
 use App\Http\Controllers\front\AuthController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -31,4 +32,8 @@ Route::prefix('/')->group(function () {
 Route::prefix('admin_space')->middleware('auth')->group(function () {
     Route::get('dashboard', [DashboadrController::class, 'index'])->name('admin.dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::prefix('declarations')->group(function () {
+        Route::get('/', [DeclarationController::class, 'index'])->name('declaration.index');
+    });
 });
