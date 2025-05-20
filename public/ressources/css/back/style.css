@@ -176,6 +176,7 @@ body {
     border-radius: var(--radius);
     padding: 8px 15px;
     width: 400px;
+    max-height: 5vh;
 }
 
 .search-bar input {

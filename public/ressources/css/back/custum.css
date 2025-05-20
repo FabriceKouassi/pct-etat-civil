@@ -59,6 +59,47 @@
     background-color: #008000; /* Vert */
 }
 
+.btn-delete, .btn-edit, .btn-back
+{
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    margin: 3px;
+}
+.d-flex
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn-back
+{
+    height: fit-content;
+    color: var(--white);
+    background-color: var(--orange);
+}
+.btn-back:hover
+{
+    color: var(--white);
+    background-color: #c0622b;
+}
+.btn-edit
+{
+    color: #008000;
+}
+.btn-edit:hover
+{
+    background-color: #00800052;
+}
+.btn-delete
+{
+    color: #c03a2b;
+}
+.btn-delete:hover
+{
+    background-color: #c03a2b65;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     .card-item {

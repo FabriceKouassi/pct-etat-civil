@@ -1,0 +1,68 @@
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Flex container pour afficher les champs en 2 colonnes */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Chaque champ de saisie occupe 48% de la largeur */
+.form-row div {
+    flex: 1;
+    min-width: 220px;
+}
+
+label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* Bouton Valider */
+.submit-btn {
+    background-color: var(--orange); /* Vert de la Côte d'Ivoire */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--green); /* Orange au survol */
+}
+
+/* Erreurs de validation */
+.error {
+    color: #FF5733; /* Rouge */
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-row div {
+    flex: 1 1 100%; /* Les champs prennent toute la largeur sur les écrans plus petits */
+    }
+}

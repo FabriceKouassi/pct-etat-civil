@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('ressources/css/back/style.css') }}">
     <link rel="stylesheet" href="{{ asset('ressources/css/back/custum.css') }}">
+    <link rel="stylesheet" href="{{ asset('ressources/css/back/table.css') }}">
+    <link rel="stylesheet" href="{{ asset('ressources/css/back/form.css') }}">
 </head>
 <body>
     <!-- Sidebar -->
@@ -26,6 +28,7 @@
     </button>
 
     <script src="{{ asset('ressources/js/back/main.js') }}"></script>
+    <script src="{{ asset('ressources/js/back/table.js') }}"></script>
 
 </body>
 </html>

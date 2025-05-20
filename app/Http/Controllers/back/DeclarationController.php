@@ -3,25 +3,40 @@
 namespace App\Http\Controllers\back;
 
 use App\Http\Controllers\Controller;
-use App\Services\DeclarationService;
+use App\Services\CitoyenService;
 use Illuminate\Http\Request;
 
 class DeclarationController extends Controller
 {
-    protected $declarationService;
+    protected $citoyenService;
 
-    public function __construct(DeclarationService $declarationService)
+    public function __construct(CitoyenService $citoyenService)
     {
-        $this->declarationService = $declarationService;
+        $this->citoyenService = $citoyenService;
     }
 
     public function index()
     {
-        return $this->declarationService->index();
+        $config = [
+            'title' => 'Déclarations',
+            'pIndex' => 'declaration'
+        ];
+
+        return view('back.declaration.index', $config);
     }
 
     public function citoyensAll()
     {
-        return $this->declarationService->citoyensAll();
+        return $this->citoyenService->all();
+    }
+
+    public function citoyenShowCreateForm()
+    {
+        return $this->citoyenService->showCreateForm();
+    }
+
+    public function citoyenSaveForm(Request $request)
+    {
+        return $this->citoyenService->saveForm($request);
     }
 }

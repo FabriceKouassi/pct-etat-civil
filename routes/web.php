@@ -33,8 +33,14 @@ Route::prefix('admin_space')->middleware('auth')->group(function () {
     Route::get('dashboard', [DashboadrController::class, 'index'])->name('admin.dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::prefix('declarations')->group(function () {
-        Route::get('/', [DeclarationController::class, 'index'])->name('declaration.index');
-        Route::get('/citoyens', [DeclarationController::class, 'citoyensAll'])->name('declaration.citoyens.all');
+    Route::prefix('declarations')->controller(DeclarationController::class)->group(function () {
+        Route::get('/', 'index')->name('declaration.index');
+
+        Route::prefix('/citoyens')->group(function (){
+            Route::get('/', 'citoyensAll')->name('declaration.citoyens.all');
+            Route::get('/nouveau', 'citoyenShowCreateForm')->name('declaration.citoyens.create');
+            Route::post('/nouveau', 'citoyenSaveForm')->name('declaration.citoyens.save');
+        });
+
     });
 });
