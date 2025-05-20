@@ -35,5 +35,6 @@ Route::prefix('admin_space')->middleware('auth')->group(function () {
 
     Route::prefix('declarations')->group(function () {
         Route::get('/', [DeclarationController::class, 'index'])->name('declaration.index');
+        Route::get('/citoyens', [DeclarationController::class, 'citoyensAll'])->name('declaration.citoyens.all');
     });
 });

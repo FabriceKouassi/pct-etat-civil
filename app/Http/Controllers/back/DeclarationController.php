@@ -19,4 +19,9 @@ class DeclarationController extends Controller
     {
         return $this->declarationService->index();
     }
+
+    public function citoyensAll()
+    {
+        return $this->declarationService->citoyensAll();
+    }
 }

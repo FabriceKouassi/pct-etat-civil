@@ -14,11 +14,11 @@
 
     <div class="sidebar-menu">
         <div class="menu-title">Menu Principal</div>
-        <a href="{{ route('admin.dashboard') }}" class="menu-item active">
+        <a href="{{ route('admin.dashboard') }}" class="menu-item {{ $pIndex === 'dashboard' ? 'active' : '' }}">
             <i class="fas fa-tachometer-alt"></i>
             <span class="menu-text">Tableau de Bord</span>
         </a>
-        <a href="#" class="menu-item">
+        <a href="{{ route('declaration.citoyens.all') }}" class="menu-item {{ $pIndex === 'citoyens' ? 'active' : '' }}">
             <i class="fas fa-users"></i>
             <span class="menu-text">Citoyens</span>
         </a>

@@ -10,7 +10,7 @@
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quos consequuntur ex. Dolorum corporis quam voluptatum tempore est autem fugiat iste accusantium quas architecto, id rerum laboriosam dicta! Dolor, nostrum.
                 </p>
-                <a href="#">Valider</a>
+                <a href="{{ route('declaration.citoyens.all') }}">Valider</a>
             </div>
             <div class="card-item">
                 <h3>Naissances</h3>
