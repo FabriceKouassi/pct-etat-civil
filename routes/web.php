@@ -40,6 +40,9 @@ Route::prefix('admin_space')->middleware('auth')->group(function () {
             Route::get('/', 'citoyensAll')->name('declaration.citoyens.all');
             Route::get('/nouveau', 'citoyenShowCreateForm')->name('declaration.citoyens.create');
             Route::post('/nouveau', 'citoyenSaveForm')->name('declaration.citoyens.save');
+            Route::get('/update/{citoyen}', 'citoyenShowUpdateForm')->name('declaration.citoyens.updateForm');
+            Route::patch('/update', 'citoyenUpdateForm')->name('declaration.citoyens.update');
+            Route::delete('/delete/{citoyen}', 'citoyenDelete')->name('declaration.citoyens.delete');
         });
 
     });

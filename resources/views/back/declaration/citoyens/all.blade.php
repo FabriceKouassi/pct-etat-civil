@@ -41,12 +41,14 @@
                         <td>{{ $item->sexe }}</td>
                         <td>Vivant</td>
                         <td class="actions">
-                            <a href="{{ route('declaration.index') }}" class="btn-edit">
-                                <i class="fas fa-pencil"></i>
-                            </a>
-                            <a href="{{ route('declaration.index') }}" class="btn-delete">
-                                <i class="fas fa-trash"></i>
-                            </a>
+                            <form action="{{ route('declaration.citoyens.delete', ['citoyen' => $item->id ]) }}" method="POST" onsubmit="return confirm('Confirmer la suppression de {{ $item->nom }} {{ $item->prenoms }}?')">
+                                @csrf
+                                @method('DELETE')
+                                <a href="{{ route('declaration.citoyens.updateForm', ['citoyen' => $item->id ]) }}" class="btn-edit">
+                                    <i class="fas fa-pencil"></i>
+                                </a>
+                                <button type="submit" class="btn-delete"><i class="fas fa-trash"></i></button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

@@ -94,11 +94,12 @@
 }
 .btn-delete
 {
-    color: #c03a2b;
+    color: #c03a2b !important;
+    background-color: transparent !important;
 }
 .btn-delete:hover
 {
-    background-color: #c03a2b65;
+    background-color: #c03a2b65 !important;
 }
 /* Responsive Design */
 @media (max-width: 768px) {
