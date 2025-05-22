@@ -16,7 +16,7 @@ class CreateCitoyensTable extends Migration
     {
         Schema::create('citoyens', function (Blueprint $table) {
             $table->id();
-            $table->string('numero');
+            $table->string('code');
             $table->string('nom');
             $table->string('prenoms');
             $table->string('sexe');

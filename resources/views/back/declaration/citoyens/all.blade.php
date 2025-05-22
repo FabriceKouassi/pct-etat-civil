@@ -28,6 +28,7 @@
         <table id="data-table">
             <thead>
                 <tr>
+                    <th>Code</th>
                     <th>Nom & prénoms</th>
                     <th>sexe</th>
                     <th>Statut</th>
@@ -37,6 +38,7 @@
             <tbody>
                 @foreach ($citoyens as $item)
                     <tr>
+                        <td>{{ $item->code }}</td>
                         <td>{{ $item->nom }} {{ $item->prenoms }}</td>
                         <td>{{ $item->sexe }}</td>
                         <td>Vivant</td>
