@@ -6,12 +6,11 @@ use Illuminate\Support\Facades\DB;
 
 class CodeGenerator
 {
-    public static function genererCodeCitoyen()
+    public static function genererCodeCitoyen(string $prefix, $table)
     {
-        $prefix = 'CIT';
         $annee = date('Y');
 
-        $dernierCode = DB::table('citoyens')
+        $dernierCode = DB::table($table)
             ->where('code', 'like', "$prefix-$annee-%")
             ->orderByDesc('code')
             ->value('code');

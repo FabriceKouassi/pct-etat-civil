@@ -22,7 +22,7 @@
             <i class="fas fa-users"></i>
             <span class="menu-text">Citoyens</span>
         </a>
-        <a href="#" class="menu-item">
+        <a href="{{ route('declaration.naissance.all') }}" class="menu-item {{ $pIndex === 'naissance' ? 'active' : '' }}">
             <i class="fas fa-baby"></i>
             <span class="menu-text">Naissances</span>
         </a>

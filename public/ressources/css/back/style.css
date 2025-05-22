@@ -188,6 +188,11 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.text-capitalize
+{
+    text-transform: capitalize;
+}
+
 .search-bar i {
     color: #777;
 }

@@ -11,15 +11,7 @@
                 <input type="text" id="search-name" placeholder="Filtrer par nom" onkeyup="filterTable()">
             </div>
             <div>
-                <label for="search-status">Statut:</label>
-                <select id="search-status" onchange="filterTable()">
-                    <option value="">Tous</option>
-                    <option value="Vivant">Vivant</option>
-                    <option value="Décédé(e)">Décédé(e)</option>
-                </select>
-            </div>
-            <div>
-                <a href="{{ route('declaration.citoyens.create') }}" class="btn btn-primary">
+                <a href="{{ route('declaration.naissance.create') }}" class="btn btn-primary">
                     <i class="fas fa-plus"></i> Créer
                 </a>
             </div>
@@ -29,24 +21,27 @@
             <thead>
                 <tr>
                     <th>Code</th>
-                    <th>Nom & prénoms</th>
-                    <th>sexe</th>
-                    <th>Statut</th>
+                    <th>Enfant</th>
+                    <th>Pere</th>
+                    <th>Mere</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($citoyens as $item)
+                @foreach ($naissance as $item)
                     <tr>
                         <td>{{ $item->code }}</td>
-                        <td>{{ $item->nom }} {{ $item->prenoms }}</td>
-                        <td class="text-capitalize">{{ $item->sexe }}</td>
-                        <td class="text-capitalize">{{ $item->statut }}</td>
+                        <td>{{ $item->naissance_enfant->nom ?? '' }} {{ $item->naissance_enfant->prenoms ?? '' }}</td>
+                        <td>{{ $item->naissance_pere->nom ?? '' }} {{ $item->naissance_pere->prenoms ?? '' }}</td>
+                        <td>{{ $item->naissance_mere->nom ?? '' }} {{ $item->naissance_mere->prenoms ?? '' }}</td>
                         <td class="actions">
-                            <form action="{{ route('declaration.citoyens.delete', ['citoyen' => $item->id ]) }}" method="POST" onsubmit="return confirm('Confirmer la suppression de {{ $item->nom }} {{ $item->prenoms }}?')">
+                            <form action="{{ route('declaration.naissance.delete', ['naissance' => $item->id ]) }}" method="POST" onsubmit="return confirm('Confirmer la suppression de {{ $item->nom }} {{ $item->prenoms }}?')">
                                 @csrf
                                 @method('DELETE')
-                                <a href="{{ route('declaration.citoyens.updateForm', ['citoyen' => $item->id ]) }}" class="btn-edit">
+                                <a href="#" class="btn-download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <a href="{{ route('declaration.naissance.updateForm', ['naissance' => $item->id ]) }}" class="btn-edit">
                                     <i class="fas fa-pencil"></i>
                                 </a>
                                 <button type="submit" class="btn-delete"><i class="fas fa-trash"></i></button>
